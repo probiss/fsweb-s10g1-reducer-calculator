@@ -3,7 +3,7 @@ import TotalDisplay from './components/TotalDisplay';
 import CalcButton from './components/CalcButton';
 import { initialState } from './reducers/index';
 import reducer from './reducers/index';
-import { addOne,ADD_ONE, CLEAR_DISPLAY, applyNumber ,APPLY_NUMBER, CHANGE_OPERATION } from './actions';
+import { addOne,ADD_ONE, CLEAR_DISPLAY, applyNumber ,APPLY_NUMBER, CHANGE_OPERATION,MEMORY_ADD, MEMORY_TOTAL, MEMORY_RESET } from './actions';
 
 
 function App() {
@@ -29,9 +29,9 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={"M+"} />
-              <CalcButton value={"MR"} />
-              <CalcButton value={"MC"} />
+              <CalcButton value={"M+"} onClick={() => dispatch ({type:MEMORY_ADD})} />
+              <CalcButton value={"MR"} onClick={() => dispatch ({type:MEMORY_RESET})}/>
+              <CalcButton value={"MC"} onClick={() => dispatch ({type:MEMORY_TOTAL})}/>
             </div>
 
             <div className="row">
